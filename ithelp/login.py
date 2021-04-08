@@ -22,6 +22,9 @@ try:
     bsObj = bs(response.text, "html.parser")
     account = bsObj.find('p', {'class': 'account-fontsize'}).get_text()
     if account == loginPayload['account']:
-        print(datetime.now().strftime("%Y/%m/%d %H:%M:%S"), '登入成功')
+        url = "https://member.ithome.com.tw/oauth/authorize?client_id=ithelp&redirect_uri=https://ithelp.ithome.com.tw/users/callback&response_type=code"
+        response = sess.get(url)
+        
+        print(datetime.now().strftime("%Y/%m/%d %H:%M:%S"), s_account['account'], '登入成功')
 except Exception as e:
-    print(datetime.now().strftime("%Y/%m/%d %H:%M:%S"), e, e.with_traceback)
+    print(datetime.now().strftime("%Y/%m/%d %H:%M:%S"), s_account['account'], e, e.with_traceback)
