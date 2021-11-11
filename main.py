@@ -1,10 +1,15 @@
 import requests
 from bs4 import BeautifulSoup as bs
 from datetime import datetime
-import json
+import json, os, sys
+
+if getattr(sys, 'frozen', False):
+    applicationPath = os.path.dirname(sys.executable)
+elif __file__:
+    applicationPath = os.path.dirname(__file__)
 
 try:
-    s_account = json.load(open("./sAccount.json", "r", encoding="utf-8"))
+    s_account = json.load(open(os.path.join(applicationPath, "sAccount.json"), "r", encoding="utf-8"))
 
     headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"}
     loginPayload = {'account': s_account['account'], 'password': s_account['password'], '_token':''}

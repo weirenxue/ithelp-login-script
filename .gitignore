@@ -1,2 +1,7 @@
 *.log
 *.ignore
+virtualenv
+*.spec
+build
+dist
+__pycache__
