@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    name: Update Gist
+    name: Login to iThelp
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
